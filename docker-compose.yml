@@ -1,0 +1,14 @@
+services:
+  word-atlas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Deploy under a sub-path by setting ATLAS_BASE, e.g. ATLAS_BASE=/words/
+        ATLAS_BASE: ${ATLAS_BASE:-/}
+    image: word-atlas:latest
+    container_name: word-atlas
+    ports:
+      # Host 8080 -> container 80. Change the left side to taste.
+      - "${PORT:-8080}:80"
+    restart: unless-stopped
