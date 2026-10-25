@@ -1,0 +1,18 @@
+# Keep the build context small and clean. node_modules and dist are rebuilt
+# inside the image; .git and local-only media never belong in the context.
+.git
+.gitignore
+node_modules
+dist
+.local
+output
+*.zip
+.DS_Store
+*.tsbuildinfo
+.playwright-cli
+.env
+.env.*
+Dockerfile
+docker-compose.yml
+README*.md
+docs
